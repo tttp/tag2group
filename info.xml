@@ -1,20 +1,23 @@
 <?xml version="1.0"?>
 <extension key="org.frontlinedefenders.tag2group" type="module">
   <file>tag2group</file>
-  <name>FIXME</name>
-  <description>FIXME</description>
-  <license>FIXME</license>
+  <name>Add automatically a contact to a group when tagged</name>
+  <description>You need to set up in your civicrm.settings.php an array<br>
+$GLOBALS['settings']['tag2group'] = array ("idtag"=>"idgroup",tagid2=>groupid2...);
+</description>
+  <license>aGPL3</license>
   <maintainer>
-    <author>FIXME</author>
-    <email>FIXME@example.com</email>
+    <author>xavier dutoit</author>
+    <email>fld@civicrm.org</email>
   </maintainer>
   <releaseDate>2013-02-03</releaseDate>
   <version>1.0</version>
-  <develStage>alpha</develStage>
+  <develStage>beta</develStage>
   <compatibility>
+    <ver>4.1</ver>
     <ver>4.2</ver>
+    <ver>4.3</ver>
   </compatibility>
-  <comments>This is a new, undeveloped module</comments>
   <civix>
     <namespace>CRM/Tag2group</namespace>
   </civix>

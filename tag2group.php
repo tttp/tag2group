@@ -2,10 +2,30 @@
 
 require_once 'tag2group.civix.php';
 
+function tag2group_civicrm_post  ($op, $objectName, $objectId, &$objectRef ) {
+  if ($objectName != 'EntityTag' && $objectRef[1] == "civicrm_contact")
+    return;
+  if (!array_key_exists($objectId,$GLOBALS['settings']['tag2group']))
+    return;
+
+  if ($op == 'create') {
+    $gid = $GLOBALS['settings']['tag2group'][$objectId];
+    foreach ($objectRef[0] as $cid) {
+      $r=civicrm_api ("GroupContact","create",array ("version"=>3, "group_id"=> $gid, "contact_id"=>$cid));
+    }
+    return;
+  }
+  if ($op == 'create') { 
+    //do something on delete?
+  }
+//    die ("tot $op $objectNam $objectName");
+}
+
 /**
  * Implementation of hook_civicrm_config
  */
-function tag2group_civicrm_config(&$config) {
+function dummytag2group_civicrm_config(&$config) {
+die ("toto");
   _tag2group_civix_civicrm_config($config);
 }
 
@@ -14,14 +34,14 @@ function tag2group_civicrm_config(&$config) {
  *
  * @param $files array(string)
  */
-function tag2group_civicrm_xmlMenu(&$files) {
+function dummytag2group_civicrm_xmlMenu(&$files) {
   _tag2group_civix_civicrm_xmlMenu($files);
 }
 
 /**
  * Implementation of hook_civicrm_install
  */
-function tag2group_civicrm_install() {
+function dummytag2group_civicrm_install() {
   return _tag2group_civix_civicrm_install();
 }
 
