@@ -2,7 +2,7 @@
 <extension key="org.frontlinedefenders.tag2group" type="module">
   <file>tag2group</file>
   <name>Add automatically a contact to a group when tagged</name>
-  <description>You need to set up in your civicrm.settings.php an array<br>
+  <description>You need to set up in your civicrm.settings.php an array
 $GLOBALS['settings']['tag2group'] = array ("idtag"=>"idgroup",tagid2=>groupid2...);
 </description>
   <license>aGPL3</license>
