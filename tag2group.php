@@ -3,11 +3,10 @@
 require_once 'tag2group.civix.php';
 
 function tag2group_civicrm_post  ($op, $objectName, $objectId, &$objectRef ) {
-  if ($objectName != 'EntityTag' && $objectRef[1] == "civicrm_contact")
+  if ($objectName != 'EntityTag' && is_array($objectRef) && $objectRef[1] == "civicrm_contact")
     return;
   if (!array_key_exists($objectId,$GLOBALS['settings']['tag2group']))
     return;
-
   if ($op == 'create') {
     $gid = $GLOBALS['settings']['tag2group'][$objectId];
     foreach ($objectRef[0] as $cid) {
