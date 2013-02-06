@@ -8,16 +8,17 @@ function tag2group_civicrm_post  ($op, $objectName, $objectId, &$objectRef ) {
   if (!array_key_exists($objectId,$GLOBALS['settings']['tag2group']))
     return;
   if ($op == 'create') {
-    $gid = $GLOBALS['settings']['tag2group'][$objectId];
-    foreach ($objectRef[0] as $cid) {
-      $r=civicrm_api ("GroupContact","create",array ("version"=>3, "group_id"=> $gid, "contact_id"=>$cid));
+    $gids = $GLOBALS['settings']['tag2group'][$objectId];
+    if (!is_array($gids))
+      $gids = array ($gids);
+print_r($gids);
+    foreach ($gids as $gid) {
+      foreach ($objectRef[0] as $cid) {
+        $r=civicrm_api ("GroupContact","create",array ("version"=>3, "group_id"=> $gid, "contact_id"=>$cid));
+      }
     }
     return;
   }
-  if ($op == 'create') { 
-    //do something on delete?
-  }
-//    die ("tot $op $objectNam $objectName");
 }
 
 /**

@@ -3,7 +3,9 @@
   <file>tag2group</file>
   <name>Add automatically a contact to a group when tagged</name>
   <description>You need to set up in your civicrm.settings.php an array
-$GLOBALS['settings']['tag2group'] = array ("idtag"=>"idgroup",tagid2=>groupid2...);
+$GLOBALS['settings']['tag2group'] = array (tagid1=>groupidA,tagid2=>groupidB...);
+If you want to put the contact in more than one group when you tag it with tagid1:
+$GLOBALS['settings']['tag2group'] = array (tagid1=> array(groupidA,groupidB),tagid2=>groupidB...);
 </description>
   <license>aGPL3</license>
   <maintainer>
@@ -11,8 +13,8 @@ $GLOBALS['settings']['tag2group'] = array ("idtag"=>"idgroup",tagid2=>groupid2..
     <email>fld@civicrm.org</email>
   </maintainer>
   <releaseDate>2013-02-03</releaseDate>
-  <version>1.0</version>
-  <develStage>beta</develStage>
+  <version>1.1</version>
+  <develStage>stable</develStage>
   <compatibility>
     <ver>4.1</ver>
     <ver>4.2</ver>
